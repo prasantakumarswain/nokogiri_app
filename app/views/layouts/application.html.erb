@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>NokogiriApp</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+
+<body>
+<tr><%= form_tag products_path, :method => 'get' do %>
+      <p>
+        <%= select_tag :category_id, options_for_select([["Catagory Name",nil]] +Category.all.collect {|category| [category.name, category.id]}) %>
+        <%= text_field_tag :search,params[:search],placeholder: "Search Products"%>
+        <%= submit_tag "search",:name => nil %>
+      </p>
+  <% end %>
+</tr>
+<%= yield %>
+</body>
+</html>

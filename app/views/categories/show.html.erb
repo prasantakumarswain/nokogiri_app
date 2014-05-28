@@ -1,0 +1,31 @@
+<tr><%#= form_tag category_path(@category), :method => 'get' do %>
+      <p>
+        <%#= text_field_tag :search,params[:search],placeholder: "Category Products"%>
+        <%#= submit_tag "search",:name => nil %>
+      <!--</p>-->
+      <!--</tr>-->
+  <%# end %>
+  <p id="notice"><%= notice %></p>
+  <p>
+    Category name : <strong><%= @category.name %></strong>
+  </p>
+  <table>
+    <thead>
+    <tr>
+      <th>Product Image</th>
+      <th>Product Name</th>
+      <th>price(in INR)</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @category_products.each do |product| %>
+        <tr>
+          <td><%= image_tag (product.image),:style => "width:100px;height:90px" %></td>
+          <td><%= link_to product.name, product_path(product) %></td>
+          <td><%=product.price %></td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+  <%= link_to 'Back', categories_path %></br>
+  <p><%= will_paginate @category_products %></p>

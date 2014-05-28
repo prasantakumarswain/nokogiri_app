@@ -1,0 +1,22 @@
+<h1>CATEGORY LISTS</h1>
+<table>
+  <thead>
+  <tr>
+    <th>S.NO</th>
+    <th>Name</th>
+    <th>&nbsp;</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @categories.each_with_index do |category,index| %>
+  <tr>
+      <td><%= index+1 %></td>
+      <td><%= link_to category.name,category_path(category) %></div></td>
+      <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  <% end %>
+  </tr>
+  </tbody>
+</table>
+<br>
+<%#= link_to 'New Category', new_category_path %>
+<%= link_to 'Product Path', products_path%>
