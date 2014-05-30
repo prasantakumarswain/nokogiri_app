@@ -10,7 +10,7 @@
 <body>
 <tr><%= form_tag products_path, :method => 'get' do %>
       <p>
-        <%= select_tag :category_id, options_for_select([["Catagory Name",nil]] +Category.all.collect {|category| [category.name, category.id]}) %>
+        <%= select_tag :category_id, options_for_select([["Catagory Name",nil]] +Category.all.collect {|category| [category.name, category.id]}){} %>
         <%= text_field_tag :search,params[:search],placeholder: "Search Products"%>
         <%= submit_tag "search",:name => nil %>
       </p>

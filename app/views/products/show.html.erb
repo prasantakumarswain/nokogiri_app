@@ -11,3 +11,5 @@
 <%#= link_to 'Edit', edit_product_path(@product) %> 
 <%= link_to 'Back', :back %>  |
 <%= link_to 'category Page', categories_path %>
+<%=link_to "<button>Buy Products</button>".html_safe, "http://www.ebay.in/#{@product.buy_product}" %>
+
